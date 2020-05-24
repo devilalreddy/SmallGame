@@ -1,10 +1,15 @@
+package controller;
+
+import controller.Controller;
+import input.Input;
+
 import java.awt.event.KeyEvent;
 
 public class PlayerController implements Controller {
 
-    private   Input input;
+    private Input input;
 
-    PlayerController(Input input) {
+    public PlayerController(Input input) {
         this.input = input;
     }
 

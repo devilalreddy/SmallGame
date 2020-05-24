@@ -1,3 +1,5 @@
+package game;
+
 public class GameLoop implements Runnable{
 
     private Boolean running;
