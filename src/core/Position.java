@@ -8,6 +8,7 @@ public class Position {
         this.x = x;
         this.y = y;
     }
+
     public int intX(){
         return (int)Math.round(x);
     }
@@ -24,8 +25,16 @@ public class Position {
         return y;
     }
 
-    public void apply(Movement movement) {
-        Vector2D vector2D = movement.getVector2D();
+    public void setX(double x) {
+        this.x = x;
+    }
+
+    public void setY(double y) {
+        this.y = y;
+    }
+
+    public void apply(Motion motion) {
+        Vector2D vector2D = motion.getVector2D();
         x += vector2D.getX();
         y += vector2D.getY();
     }

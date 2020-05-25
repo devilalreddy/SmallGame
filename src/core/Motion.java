@@ -2,16 +2,16 @@ package core;
 
 import controller.Controller;
 
-public class Movement {
+public class Motion {
     private Vector2D vector2D;
     private double speed;
 
-    public Movement(double speed) {
+    public Motion(double speed) {
         this.speed = speed;
         this.vector2D = new Vector2D(0,0);
     }
 
-    public Movement(Vector2D vector2D) {
+    public Motion(Vector2D vector2D) {
         this.vector2D = vector2D;
     }
 
@@ -38,7 +38,9 @@ public class Movement {
         vector2D = new Vector2D(deltaX,deltaY);
         vector2D.normalize();
         vector2D.multiply(speed);
-        System.out.println(vector2D.length());
     }
 
+    public boolean isMoving() {
+        return vector2D.length() > 0;
+    }
 }
