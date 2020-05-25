@@ -5,6 +5,7 @@ import core.Size;
 import display.Camera;
 import entity.GameObject;
 import entity.Player;
+import game.Time;
 import gfx.SpriteLibrary;
 import input.Input;
 import map.GameMap;
@@ -19,16 +20,18 @@ public abstract class State {
     protected Input input;
     protected GameMap gameMap;
     protected Camera camera;
+    protected Time time;
 
     public State(Size windowSize, Input input) {
         this.input = input;
         gameObject = new ArrayList<>();
         spriteLibrary = new SpriteLibrary();
-        camera = new Camera(windowSize);;
+        camera = new Camera(windowSize);
+        time = new Time();
     }
     public void update(){
         sortObjectsByPosition();
-        gameObject.forEach(gameObject -> gameObject.update());
+        gameObject.forEach(gameObject -> gameObject.update(this));
         camera.update(this);
     }
 
@@ -46,5 +49,9 @@ public abstract class State {
 
     public GameMap getGameMap() {
         return gameMap;
+    }
+
+    public Time getTime() {
+        return time;
     }
 }
