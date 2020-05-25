@@ -10,6 +10,7 @@ import input.Input;
 import map.GameMap;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public abstract class State {
@@ -26,8 +27,13 @@ public abstract class State {
         camera = new Camera(windowSize);;
     }
     public void update(){
+        sortObjectsByPosition();
         gameObject.forEach(gameObject -> gameObject.update());
         camera.update(this);
+    }
+
+    private void sortObjectsByPosition() {
+    gameObject.sort(Comparator.comparing(gameObject -> gameObject.getPosition().getY()));
     }
 
     public Camera getCamera() {

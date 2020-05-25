@@ -9,10 +9,10 @@ import gfx.SpriteLibrary;
 import java.awt.*;
 
 public abstract class MovingEntity extends GameObject {
-    private Controller controller;
-    private Motion motion;
-    private AnimationManager animationManager;
-    private Direction direction;
+    protected Controller controller;
+    protected Motion motion;
+    protected AnimationManager animationManager;
+    protected Direction direction;
 
     public MovingEntity(Controller controller, SpriteLibrary spriteLibrary){
         this.controller = controller;

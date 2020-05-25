@@ -5,7 +5,7 @@ import core.Size;
 
 import java.awt.*;
 
-public abstract class GameObject {
+public abstract class  GameObject {
     public Position position;
     public Size size;
 
@@ -23,5 +23,9 @@ public abstract class GameObject {
 
     public Size getSize() {
         return size;
+    }
+
+    public void setPosition(Position position) {
+        this.position = position;
     }
 }
