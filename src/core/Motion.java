@@ -43,4 +43,8 @@ public class Motion {
     public boolean isMoving() {
         return vector2D.length() > 0;
     }
+
+    public void multiply(double speedMultiplier) {
+        vector2D.multiply(speedMultiplier);
+    }
 }
