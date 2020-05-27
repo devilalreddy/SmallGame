@@ -47,4 +47,10 @@ public class Motion {
     public void multiply(double speedMultiplier) {
         vector2D.multiply(speedMultiplier);
     }
+
+    public void stop( boolean stopX, boolean stopY) {
+        vector2D = new Vector2D(
+                 stopX ? 0 : vector2D.getX(),
+                stopY ? 0 : vector2D.getY());
+    }
 }

@@ -5,6 +5,7 @@ import controller.PlayerController;
 import core.Size;
 import entity.NPC;
 import entity.Player;
+import entity.effect.Sick;
 import input.Input;
 import map.GameMap;
 
@@ -19,16 +20,17 @@ public class GameState extends State {
 
     private void initializeCharacters() {
         Player player = new Player(new PlayerController(input), spriteLibrary);
-        gameObject.add(player);
+        gameObjects.add(player);
         camera.focusOn(player);
-        initializeNPCs(10);
+        initializeNPCs(45);
     }
 
     private void initializeNPCs(int numberOfNPCs) {
         for (int i =0; i< numberOfNPCs; i++){
         NPC npc = new NPC(new NPCController() ,spriteLibrary);
         npc.setPosition(gameMap.getRandomPosition());
-        gameObject.add(npc);
+        npc.addEffect(new Sick());
+        gameObjects.add(npc);
         }
     }
 }

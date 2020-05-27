@@ -2,6 +2,7 @@ package game;
 
 import core.Size;
 import display.Display;
+import game.settings.GameSettings;
 import game.state.GameState;
 import game.state.State;
 import input.Input;
@@ -13,12 +14,14 @@ public class Game {
     private Display display;
     private Input input;
     private State state;
+    private GameSettings settings;
 
 
     public Game(int height , int width){
         input = new Input();
         display = new Display(width,height, input);
         state = new GameState(new Size(width,height),input);
+        settings = new GameSettings(true);
     }
 
     public  void update(){
@@ -26,7 +29,7 @@ public class Game {
     }
 
     public void render(){
-        display.render(state);
+        display.render(state,settings.isDebugMode());
     }
 
 }
